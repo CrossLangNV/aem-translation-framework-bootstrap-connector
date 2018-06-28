@@ -3,7 +3,7 @@
 ADOBE SYSTEMS INCORPORATED
 Copyright [first year code created] Adobe Systems Incorporated
 All Rights Reserved.
- 
+
 NOTICE:  Adobe permits you to use, modify, and distribute this file in accordance with the
 terms of the Adobe license agreement accompanying it.  If you have received this file from a
 source other than Adobe, then your use, modification, or distribution of it requires the prior
@@ -26,7 +26,9 @@ import com.adobe.granite.translation.api.TranslationException;
 import com.adobe.granite.translation.connector.bootstrap.core.BootstrapTranslationCloudConfig;
 import com.adobe.granite.translation.core.TranslationCloudConfigUtil;
 
-@Component(service = AdapterFactory.class)
+@Component(service = AdapterFactory.class, property = {
+        "adapters=com.adobe.granite.translation.connector.bootstrap.core.BootstrapTranslationCloudConfig",
+        "adaptables=org.apache.sling.api.resource.Resource", "adaptables=javax.jcr.Node" })
 public class BootstrapTranslationAdapterFactory implements AdapterFactory
 {
     @Reference
